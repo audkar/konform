@@ -17,7 +17,7 @@ buildscript {
 }
 
 plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '1.4.21'
+    id 'org.jetbrains.kotlin.multiplatform' version '1.4.31'
     id 'maven-publish'
 }
 
@@ -34,10 +34,18 @@ kotlin {
     jvm()
     js {
         browser {
+            testTask {
+                enabled = false
+            }
         }
         nodejs {
         }
     }
+    linuxX64()
+    linuxArm64()
+    macosX64()
+    mingwX64()
+    ios()
     sourceSets {
         commonMain {}
         commonTest {
